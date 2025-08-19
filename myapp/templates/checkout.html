@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+<h2 class="text-2xl font-semibold text-center mt-8">Welcome to Payment Getway </h2>
+<div class="container mx-auto p-6">
+  <div class="max-w-lg mx-auto bg-white shadow-lg rounded-lg p-6">
+      <h2 class="text-2xl font-semibold">Checkout - {{ product.name }}</h2>
+      <img src="{{ product.images.url }}" class="w-full h-48 object-cover" alt="">
+      <p class="text-lg text-gray-600">Price: ${{ product.price }}</p>
+      <form action="/create-payment/{{product.id}}/" method="POST">
+        <button id="checkout-button" type="submit" class="mt-4 bg-green-500 text-white px-6 py-2 rounded-lg">Pay Now</button>
+        <a href="{% url 'product_list' %}" class="mt-4 inline-block bg-gray-500 text-white px-4 py-2 rounded-lg">Back</a>
+      </form>
+  </div>
+</div>
+
+{% endblock content %}
